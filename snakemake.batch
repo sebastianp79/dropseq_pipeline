@@ -12,4 +12,4 @@
 
 source activate dropseq
 
-bash submit-snakemake.sh $*
+bash submit_snakemake.sh $*
