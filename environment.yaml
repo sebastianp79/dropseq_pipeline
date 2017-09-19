@@ -1,0 +1,51 @@
+#comments taken from John's scqtl environment file
+# Conda configuration file to reproduce computing environment
+#
+# Create the conda environment:
+#
+# conda env create --file environment.yaml
+#
+# Update the conda environment:
+#
+# conda env update --file environment.yaml
+#
+# Activate the conda environment:
+#
+# source activate dropseq
+#
+# Deactivate the conda environment:
+#
+# source deactivate dropseq
+#
+# Resources:
+
+
+name:
+    dropseq
+channels:
+    - bioconda
+    - conda-forge
+    - jdblischak
+    - defaults
+    - r
+dependencies:
+    - python
+    - fastqc
+    - snakemake
+    - umi_tools
+    - STAR
+    - subread
+    - samtools
+    - r-base
+    - trim_galore
+    - multiqc
+    - cutadapt
+    # - r-devtools
+    # - r-dplyr
+    # - r-ggplot2
+    # - r-readr
+    # - r-rmarkdown >=0.9.6
+    # - r-stringr >=1.2.0
+    # - r-testit
+    # - r-tidyr
+    # - r-workflowr

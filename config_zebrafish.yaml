@@ -1,0 +1,21 @@
+
+#directories
+#the folder name needs to be changed to project
+proj_dir: /Volumes/Data2/
+# Make sure to also update path for log files in cluster.json
+dir_log: /Volumes/Data2/log/
+# Annotation files ---------
+
+#Genome index for STAR aligner
+genome_index: /Volumes/Data2/STAR_indeces/dr10_noalt_juncRefGene_RG_49/
+
+#transcript file
+txn_file: /Volumes/Data2/STAR_indeces/danRer10_UCSC_RG/RefGene_danRer10-2017-08-28_RG.gtf
+
+#feature file
+#feature_file: /project2/basu/onibasu/data/
+
+#expected number of cells the value is the upper bound, at least 10% of this value will be lower bound so make sure to adjust it
+cell_num: 3000
+# cell barcode UMI Configuration
+barcode: "CCCCCCCCCCCCNNNNNNNN"
