@@ -1,9 +1,9 @@
 
 #Genome index for STAR aligner
-genome_index: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeceshg38_noalt_juncGencodeV27_49/
+genome_index: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_49/
 
 #transcript file
-txn_file: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeceshg38_UCSC/gencode.v27.annotation.gtf
+txn_file: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf
 
 #feature file
 #feature_file: /project2/basu/onibasu/data/
