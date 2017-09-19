@@ -6,7 +6,7 @@ snakemake \
     -kp \
     --ri \
     -j 500 \
-    --cluster-config cluster.json \
+    --cluster-config /project2/gilad/spott/Pipelines/dropseq_pipeline/cluster.json \
     -c "sbatch \
         --mem={cluster.mem} \
         --nodes={cluster.n} \
