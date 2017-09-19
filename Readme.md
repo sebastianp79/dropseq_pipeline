@@ -13,13 +13,14 @@ sinteractive
 ```
 2. Create compute environment using conda
 
+The environment needs to be created only once. It will be activated when running the dropseq pipeline.
 ```bash
 module load Anaconda3
 
 conda env create --file /project2/gilad/spott/Pipelines/DropSeq/environment.yaml
 ```
-The environment needs to be created only once. It will be activated when running the dropseq pipeline.
-To update the environment (might be necessary from time to time) you can run the following command:
+
+To update the environment, you can run the following command:
 ```bash
 conda env update --file /project2/gilad/spott/Pipelines/DropSeq/environment.yaml
 ```
@@ -32,11 +33,16 @@ mkdir your_project
 2. Create directory fastq in 'your_project' directory and add fastq files
 ```bash
 cd your_project
+
+mkdir Data
+cd Data/
+
+mkdir fastq
+cd fastq/
 #only include the fastq files included in a single run, both read 1 and read2
 cp path/to/fastq/*fastq.gz .
 
-cd ../
-
+cd ../../
 ```
 
 
@@ -46,11 +52,14 @@ cd ../
 
 ####Option 1: Human samples, hg38
 
+This command will run the Submit_snakemake.sh and pass the location of the Snakefile and the config file (for hg38).
+
 ```bash
 snakemake.batch "-s /project2/gilad/spott/Pipelines/DropSeq/Snakefile" \
  "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_hg38.yaml"
 ```
-This command will run the Submit_snakemake.sh and pass the location of the Snakefile and the config file (for hg38).
+
+
 **Important:** this pipeline will fail in the event that the  number of cells in this sample could not be determined automatically. If this is the case re-run the command below and substitute with your best guess of the cell number. This depends on what you expected from the experiment. Also check out the plots *Whitelist_stats_cell_barcode_knee.png*, *Whitelist_stats_cell_barcode_count_density.png*, and *Whitelist_stats_cell_barcode_counts.png* to inform your threshold.
 
 ```bash
