@@ -124,7 +124,7 @@ rule umi_create_whitelist:
 rule umi_extract_bc_and_umi:
     input:
         r1 = fastq_merged + "combined_r1.fastq.gz",
-        r2 = fastq_merged + "combined_r1.fastq.gz",
+        r2 = fastq_merged + "combined_r2.fastq.gz",
         wl = cell_stats + "whitelist.txt"
     output:
         r1_ext = temp(fastq_extr + "combined_r1_extracted.fastq.gz"),
