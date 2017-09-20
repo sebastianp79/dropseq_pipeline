@@ -1,49 +1,49 @@
 {
     "__default__" :
     {
-    "mem" : 2000,
-    "n" : 1,
-	  "tasks" : 1,
-    "name" : "{rule}-{wildcards}",
-	  "logfile": "log/snake-{rule}-{wildcards}-%j.out"
+      "mem" : 2000,
+      "n" : 1,
+	    "tasks" : 1,
+      "name" : "{rule}-{wildcards}",
+	    "logfile": "log/snake-{rule}-{wildcards}-%j.out"
     },
     "fastqc" :
     {
-	"mem" : 8000
+	    "mem" : 8000
     },
     "fastq_merge_r1" :
     {
-	"mem": 8000
+	    "mem": 8000
     },
     "fastq_merge_r2" :
     {
-	"mem": 8000
+	    "mem": 8000
     },
     "umi_create_whitelist" :
     {
-	"mem": 8000,
-	"tasks": 8
+	    "mem": 8000,
+	    "tasks": 8
     },
     "trim_read2" :
     {
-	"mem": 8000
+	    "mem": 8000
     },
     "align" :
     {
-	"mem": 16000,
-  "tasks": 8
+	    "mem": 16000,
+      "tasks": 8
     },
     "reads_to_transcripts" :
     {
-	"mem": 16000,
-  "tasks": 4
+	    "mem": 16000,
+      "tasks": 4
     },
     "sort_bams" :
     {
-	"mem" : 8000
+	    "mem" : 8000
     },
-  "make_DGE_matrix" :
+    "make_DGE_matrix" :
     {
-	"mem" : 16000
+	    "mem" : 16000
     }
 }
