@@ -1,3 +1,10 @@
+##dropseq_pipeline
+
+The Drop-seq pipeline is designed to process data from fastq files to a digital expression matrix (dge).
+The pipeline is based on Snakemake and is currently designed to run on the uchicago rcc cluster **midway2**. Below is a description of how to set up the project folders and to start the analysis.
+Each experiment differs and the pipeline might need to be adjusted to accommodate such individual differences.
+
+Below are steps that are common to all experiments and outlines of analysis that are commonly used.
 
 
 
@@ -11,7 +18,7 @@ ssh CnetID@midway2.rcc.uchicago.edu
 #on midway2 start an interactive session
 sinteractive  --partition=broadwl
 ```
-2. Create compute environment using conda (This step can be skipped when re-running an anlysis)
+2. Create compute environment using conda (This step can be skipped when re-running an analysis)
 
 The environment needs to be created only once. It will be activated when running the dropseq pipeline.
 ```bash
@@ -49,6 +56,7 @@ cd ../../
 
 ##Run dropseq pipeline
 
+Creation of the annotation files used in the analyses below is described in **Preparation_of_annotation_data.md**, which can be found in this repo as well.
 
 ####Option 1: Human samples, hg38
 
@@ -76,3 +84,7 @@ snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_f
 
 
 ####Option 4: Zebrafish samples, danRer10
+
+This analysis is geared towards Zebrafish cells that express both a copy of mouse c-myc and the fluorochromes EGFP or mCherry.
+
+The sequence and transcript information for these genes has been added to the reference and STAR index. It should be fine to use these files if you use zebrafish in your experiments but do not express transgenes.
