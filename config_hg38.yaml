@@ -1,10 +1,12 @@
 #Snakemake configuration file
 
-#thi file
+#this file contains the info specific to a snakemake run
 
 #project directory this ine needs to be changed
-#proj_dir: /project2/gilad/spott/drop_test
+proj_dir: /project2/gilad/spott/drop_test
 
+#logfile
+dir_log: /project2/gilad/spott/drop_test/log/
 #Genome index for STAR aligner
 genome_index: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_49/
 

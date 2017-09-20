@@ -1,9 +1,6 @@
 #
 
 
-
-
-
 import glob
 import os
 
