@@ -5,8 +5,6 @@ import glob
 import os
 
 # Configuration ----------------------------------------------------------------
-#these things should go to the config file
-#configfile: "config.yaml"
 
 #expected number of cells (upper limit)
 cell_num = config["cell_num"]
