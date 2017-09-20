@@ -1,3 +1,9 @@
+#Snakemake configuration file
+
+#thi file
+
+#project directory this ine needs to be changed
+#proj_dir: /project2/gilad/spott/drop_test
 
 #Genome index for STAR aligner
 genome_index: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_49/

@@ -11,7 +11,7 @@ ssh CnetID@midway2.rcc.uchicago.edu
 #on midway2 start an interactive session
 sinteractive  --partition=broadwl
 ```
-2. Create compute environment using conda
+2. Create compute environment using conda (This step can be skipped when re-running an anlysis)
 
 The environment needs to be created only once. It will be activated when running the dropseq pipeline.
 ```bash
@@ -34,8 +34,8 @@ mkdir your_project
 ```bash
 cd your_project
 
-mkdir Data
-cd Data/
+mkdir data
+cd data/
 
 mkdir fastq
 cd fastq/
