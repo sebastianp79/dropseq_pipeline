@@ -9,7 +9,7 @@
 ssh CnetID@midway2.rcc.uchicago.edu
 
 #on midway2 start an interactive session
-sinteractive
+sinteractive  --partition=broadwl
 ```
 2. Create compute environment using conda
 
@@ -17,12 +17,12 @@ The environment needs to be created only once. It will be activated when running
 ```bash
 module load Anaconda3
 
-conda env create --file /project2/gilad/spott/Pipelines/DropSeq/environment.yaml
+conda env create --file /project2/gilad/spott/Pipelines/dropseq_pipeline/environment.yaml
 ```
 
 To update the environment, you can run the following command:
 ```bash
-conda env update --file /project2/gilad/spott/Pipelines/DropSeq/environment.yaml
+conda env update --file /project2/gilad/spott/Pipelines/dropseq_pipeline/environment.yaml
 ```
 
 ##Prepare data:
@@ -55,7 +55,7 @@ cd ../../
 This command will run the Submit_snakemake.sh and pass the location of the Snakefile and the config file (for hg38).
 
 ```bash
-snakemake.batch "-s /project2/gilad/spott/Pipelines/DropSeq/Snakefile" \
+snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile" \
  "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_hg38.yaml"
 ```
 
@@ -64,8 +64,8 @@ snakemake.batch "-s /project2/gilad/spott/Pipelines/DropSeq/Snakefile" \
 
 ```bash
 #replace 5000 in cell_num with your desired cell number
-snakemake.batch "-s /project2/gilad/spott/Pipelines/DropSeq/Snakefile_fixed" \
-"--configfile /project2/gilad/spott/Pipelines/DropSeq/config_hg38.yaml" \
+snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_fixed" \
+"--configfile /project2/gilad/spott/Pipelines/dropseq_pipeline/config_hg38.yaml" \
 "--config cell_num=5000"
 ```
 
