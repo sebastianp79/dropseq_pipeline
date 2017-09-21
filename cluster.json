@@ -30,7 +30,7 @@
     },
     "align" :
     {
-	    "mem": 64000,
+	    "mem": 32000,
       "tasks": 4
     },
     "reads_to_transcripts" :

@@ -154,7 +154,7 @@ rule align:
         ref_genome = GenomeIndex
     output:
         aligned + "Aligned.SortedByCoordinate.out.bam"
-    threads: 8
+    threads: 4
     shell:
         "STAR --runThreadN {threads} --genomeDir {input.ref_genome} --readFilesIn {input.fq} --readFilesCommand zcat --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outStd BAM_SortedByCoordinate > {output}"
 
@@ -167,7 +167,7 @@ rule reads_to_transcripts:
     output:
         assigned_feat = assigned + "gene_assigned.summary",
         bam_counts = assigned + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
-    threads: 8
+    threads: 4
     shell:
         "featureCounts -a {input.features} -o {output.assigned_feat} -R BAM {input.bam} -T {threads}"
 
