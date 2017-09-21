@@ -10,7 +10,7 @@ Below are steps that are common to all experiments and outlines of analysis that
 
 
 ## Setting up
-1. start interactive session to set up the folders, data, and the dropseq pipeline
+#### 1. Start interactive session to set up the folders, data, and the dropseq pipeline
 ```bash
 #log into midway2
 ssh CnetID@midway2.rcc.uchicago.edu
@@ -18,7 +18,7 @@ ssh CnetID@midway2.rcc.uchicago.edu
 #on midway2 start an interactive session
 sinteractive  --partition=broadwl
 ```
-2. Create compute environment using conda (This step can be skipped when re-running an analysis)
+#### 2. Create a compute environment using conda (This step can be skipped when re-running an analysis)
 
 The environment needs to be created only once. It will be activated when running the dropseq pipeline.
 ```bash
@@ -33,11 +33,11 @@ conda env update --file /project2/gilad/spott/Pipelines/dropseq_pipeline/environ
 ```
 
 ## Prepare data:
-1. In your directory on midway2 create a project directory
+#### 1. Create a project directory in your directory on midway2
 ```bash
 mkdir your_project
 ```
-2. Create directory fastq in 'your_project' directory and add fastq files
+#### 2. Create directory fastq in 'your_project' directory and add fastq files
 ```bash
 cd your_project
 
@@ -58,7 +58,7 @@ cd ../../
 
 Creation of the annotation files used in the analyses below is described in **Preparation_of_annotation_data.md**, which can be found in this repo as well.
 
-#### Option 1: Human samples, hg38
+### Option 1: Human samples, hg38
 
 This command will run the Submit_snakemake.sh and pass the location of the Snakefile and the config file (for hg38).
 
@@ -77,13 +77,13 @@ snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_f
 "--config cell_num=5000"
 ```
 
-#### Option 2: mouse, mm10
+### Option 2: mouse, mm10
 
 
-#### Option 3: Human + Chimp mixture, hg38, panTro5
+### Option 3: Human + Chimp mixture, hg38, panTro5
 
 
-#### Option 4: Zebrafish samples, danRer10
+### Option 4: Zebrafish samples, danRer10
 
 This analysis is geared towards Zebrafish cells that express both a copy of mouse c-myc and the fluorochromes EGFP or mCherry.
 
