@@ -7,10 +7,10 @@ dir_log: log/
 # Annotation files ---------
 
 #Genome index for STAR aligner
-genome_index: /Volumes/Data2/STAR_indeces/dr10_noalt_juncRefGene_RG_myc_61/
+genome_index: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/dr10_noalt_juncRefGene_RG_myc_61/
 
 #transcript file
-txn_file: /Volumes/Data2/STAR_indeces/danRer10_UCSC_RG/RefGene_danRer10-2017-08-28_RG_cmyc.gtf
+txn_file: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/danRer10_UCSC_RG/RefGene_danRer10-2017-08-28_RG_cmyc.gtf
 
 #feature file
 #feature_file: /project2/basu/onibasu/data/
