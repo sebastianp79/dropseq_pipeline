@@ -124,15 +124,20 @@ Read length is 62 bp for the current DropSeq set up. If lengths of reads changes
 
 #### hg38
 ```bash
-
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir hg38_noalt_juncGencodeV27_61 --genomeFastaFiles hg38_UCSC/hg38_ucsc.fa --sjdbGTFfile hg38_UCSC/gencode.v27.annotation.gtf --sjdbOverhang 61
 
 
 ```
 
+#### mm10
+
+```bash
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir mm10_noalt_juncGencodemV15_61 --genomeFastaFiles mm10_UCSC/mm10_ucsc.fa --sjdbGTFfile mm10_UCSC/gencode.vM15.annotation.gtf --sjdbOverhang 61
 
 
+```
 #### Zebrafish (danRer10_RGcMyc)
 This index includes the fluorochromes EGFP and mCherry as well as the oncogene c-myc (from mouse).
 
-STAR --runThreadN 2 --runMode genomeGenerate --genomeDir dr10_noalt_juncRefGene_RG_myc_61 --genomeFastaFiles danRer10_UCSC_RG/danRer10_RG_cmyc.fa --sjdbGTFfile RefGene_danRer10-2017-08-28_RG_cmyc.gtf --sjdbOverhang 61
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir dr10_noalt_juncRefGene_RG_myc_61 --genomeFastaFiles danRer10_UCSC_RG/danRer10_RG_cmyc.fa --sjdbGTFfile danRer10_UCSC_RG/RefGene_danRer10-2017-08-28_RG_cmyc.gtf --sjdbOverhang 61
 ```

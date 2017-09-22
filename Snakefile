@@ -17,9 +17,9 @@ GenomeIndex = config["genome_index"]
 #gene file
 txn_file = config["txn_file"]
 
-pd = config["proj_dir"]
-data = pd + "data/"
-output = pd + "output/"
+#pd = config["proj_dir"]
+data = "data/"
+output =  "output/"
 fastq_dir = data + "fastq/"
 fastqc_dir = output + "fastqc/"
 fastq_merged = data + "fastq_merged/"
@@ -34,8 +34,8 @@ dge_data = output + "dge_data/"
 code = "Code/"
 
 
-#make sure the project directory actually exists
-assert os.path.exists(pd), "Project directory exists"
+##make sure the project directory actually exists
+#sassert os.path.exists(pd), "Project directory exists"
 
 # Directory to send log files. Needs to be created manually since it
 # is not a file created by a Snakemake rule.
