@@ -13,11 +13,11 @@
     },
     "fastq_merge_r1" :
     {
-	    "mem": 8000
+	    "mem": 16000
     },
     "fastq_merge_r2" :
     {
-	    "mem": 8000
+	    "mem": 16000
     },
     "umi_create_whitelist" :
     {
