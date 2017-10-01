@@ -1,4 +1,5 @@
-#
+#Snakefile for Dropseq analysis - this should be used first to try and infer number of cells in sample
+
 
 
 import glob
@@ -31,6 +32,8 @@ annotation_data = data + "annotation_data/"
 sorted_reads = data + "sorted_reads/"
 assigned = data + "assigned/"
 dge_data = output + "dge_data/"
+qc_data = output + "qc_data/"
+scripts = pd + "Scripts/
 code = "Code/"
 
 
@@ -55,23 +58,40 @@ rule all:
         sorted_reads + "assigned_sorted.bam",
         sorted_reads + "assigned_sorted.bam.bai",
         dge_data + "counts.tsv.gz",
+        fastqc_dir + "combined_R{read_num}_fastqc.zip",
+        qc_data + "Nucleotide_frequency_in_UMIs.pdf",
+        qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
 
 
-rule run_fastqc:
-    input:
-        expand(fastqc_dir + "{sample}_R1_001_fastqc.html", sample = samples),
-        expand(fastqc_dir + "{sample}_R2_001_fastqc.html", sample = samples)
-
-
+#fastqc will be run on merged files
 rule fastqc:
     input:
-        fastq_dir + "{sample}_R{read_num}_001.fastq.gz"
+        fastq_merged + "combined_R{read_num}.fastq.gz"
     output:
-        fastqc_dir + "{sample}_R{read_num}_001_fastqc.html"
+        fastqc_dir + "combined_R{read_num}_fastqc.html",
+        fastqc_dir + "combined_R{read_num}_fastqc.zip"
     params:
         outdir = fastqc_dir
     shell:
         "fastqc -o {params.outdir} {input}"
+
+
+rule unzip:
+    input:
+        fastqc_dir + "combined_r1_fastqc.zip"
+    output:
+        fastqc_dir + "combined_r1_fastqc/"
+    shell:
+        "unzip {input}"
+
+rule barcode_qc:
+    input:
+        fastqc_dir + "combined_r1_fastqc/fasqc_data.txt"
+    output:
+        qc_data + "Nucleotide_frequency_in_UMIs.pdf",
+        qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
+    shell:
+        "shell Scripts/Calculate-nuc-freq.sh {input}"
 
 
 rule fastq_merge_r1:
@@ -89,20 +109,6 @@ rule fastq_merge_r2:
         fastq_merged + "combined_r2.fastq.gz"
     shell:
         "zcat {input} | gzip --stdout  > {output}"
-
-
-# rule barcode_QC:
-#     input:
-#         r1 = fastq_merged + "combined_r1.fastq.gz",
-#         r2 = fastq_merged + "combined_r2.fastq.gz"
-#     output:
-#         r1_trim = fastq_merged + "combined_r1_trimmed.fastq.gz",
-#         r2_trim = fastq_merged + "combined_r2_trimmed.fastq.gz"
-#     params:
-#         min_len = 20,
-#         min_qual = 20
-#     shell:
-#         "cutadapt --minimum-length {params.min_len} -q {params.min_qual}  -o {output.r1_trim} -p {output.r2_trim} {input.r1} {input.r1}"
 
 
 rule umi_create_whitelist:
@@ -140,7 +146,7 @@ rule trim_read2:
     shell:
         "cutadapt -a AAAAAA -g AAGCAGTGGTATCAACGCAGAGTGAATGGG -o {output} {input}"
 
-
+#alignment with STAR using defaults
 rule align:
     input:
         fq = fastq_extr + "combined_r2_extracted_polyA_adaptor_trimmed.fastq.gz",
@@ -152,7 +158,6 @@ rule align:
         "STAR --runThreadN {threads} --genomeDir {input.ref_genome} --readFilesIn {input.fq} --readFilesCommand zcat --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outStd BAM_SortedByCoordinate > {output}"
 
 # assign reads to transcripts
-
 rule reads_to_transcripts:
     input:
         bam = aligned + "Aligned.SortedByCoordinate.out.bam",
@@ -164,7 +169,6 @@ rule reads_to_transcripts:
     shell:
         "featureCounts -a {input.features} -o {output.assigned_feat} -R BAM {input.bam} -T {threads}"
 
-#might need to change -m memory allocation per thread
 rule sort_bams:
     input:
         assigned + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
@@ -189,25 +193,3 @@ rule make_DGE_matrix:
         dge_data + "counts.tsv.gz"
     shell:
         "umi_tools count --wide-format-cell-counts --per-gene --gene-tag=XT --per-cell -I {input} -S {output}"
-
-# rule qc_with_multiqc:
-#     input:
-#         fqc1 = not sure how
-#         fqc2 = alternative input dir,
-#         alternative input dir
-#         alternative input dir
-#     output:
-#         multiqc_report.html
-#     shell:
-#         "multiqc "
-#         multiqc data/
-# multiqc data/ ../proj_one/analysis/ /tmp/results
-# multiqc data/*_fastqc.zip
-# multiqc data/sample_1*
-#
-#
-#
-#
-# The report is called multiqc_report.html by default. Tab-delimited data files are created in multiqc_data/, containing additional information. You can use a custom name for the report with the -n/--filename parameter, or instruct MultiQC to create them in a subdirectory using the -o/-outdir parameter.
-#
-# Note that different MultiQC templates may have different defaults.

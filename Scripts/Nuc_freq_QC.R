@@ -13,10 +13,15 @@ library(tidyr)
 library(ggplot2)
 
 option_list <- list(make_option(c("-f", "--file"),
-                    type="character",
-                    default=NULL,
-                    help="fastqc file name",
-                    metavar="character"))
+                                type="character",
+                                default=NULL,
+                                help="fastqc file name",
+                                metavar="character"),
+                    make_option(c("-s", "--start"),
+                                type="integer",
+                                default=NULL,
+                                help="lines to skip",
+                                metavar="integer"))
 
 opt_parser <- OptionParser(option_list=option_list)
 opt <- parse_args(opt_parser)
@@ -31,7 +36,7 @@ if (is.null(opt$file)){
 
 #import and clean data
 fq <- read.delim(file = opt$file,
-                 skip = 92, #this needs to change for actual file
+                 skip = opt$start, #this needs to change for actual file
                  nrows = 20)
 colnames(fq) <- c("Base_position", "G", "A", "T", "C")
 
@@ -46,7 +51,7 @@ max <- max(fq_long$prop) + 5
 #create plot for umi nucleotide diversity
 fq_long %>%
   filter(., Base_position >= 13 & Base_position <= 20) %>%
-  ggplot(., aes(Base_position - 13, prop, col = nuc)) +
+  ggplot(., aes(Base_position - 12, prop, col = nuc)) +
     geom_point() +
     geom_line() +
     ggtitle("Nucleotide frequency in UMIs") +
