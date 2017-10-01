@@ -67,7 +67,7 @@ This command will run the Submit_snakemake.sh and pass the location of the Snake
 
 ```bash
 snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile" \
- "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_hg38.yaml"
+ "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_hg38.yaml" "--config proj_dir=/project2/PI/CNETID/Path/to/your/dir/"
 ```
 
 
@@ -77,7 +77,7 @@ snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile" 
 #replace 5000 in cell_num with your desired cell number
 snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_fixed" \
 "--configfile /project2/gilad/spott/Pipelines/dropseq_pipeline/config_hg38.yaml" \
-"--config cell_num=5000"
+"--config cell_num=5000" "--config proj_dir=/project2/PI/CNETID/Path/to/your/dir/"
 ```
 
 ### Option 2: mouse, mm10
@@ -97,7 +97,7 @@ The sequence and transcript information for these genes has been added to the re
 ```bash
 
 snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile" \
- "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_zebrafish.yaml"
+ "--configfile /project2/gilad/spott/Pipelines/DropSeq/config_zebrafish.yaml" "--config proj_dir=/project2/PI/CNETID/Path/to/your/dir/"
 
 
 ```
@@ -105,5 +105,5 @@ snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile" 
 
 ```bash
 #replace 5000 in cell_num with your desired cell number
-bash /project2/gilad/spott/Pipelines/dropseq_pipeline/snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_fixed" "--configfile /project2/gilad/spott/Pipelines/dropseq_pipeline/config_zebrafish.yaml" "--config cell_num=3000"
+bash /project2/gilad/spott/Pipelines/dropseq_pipeline/snakemake.batch "-s /project2/gilad/spott/Pipelines/dropseq_pipeline/Snakefile_fixed" "--configfile /project2/gilad/spott/Pipelines/dropseq_pipeline/config_zebrafish.yaml" "--config cell_num=3000" "--config proj_dir=/project2/PI/CNETID/Path/to/your/dir/"
 ```

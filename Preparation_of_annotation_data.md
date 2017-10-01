@@ -6,7 +6,7 @@
 
 
 
-hg38
+#### hg38
 ```bash
 rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.chromFa.tar.gz .
 #combine into one single drop alternative haplotypes (_alt)
@@ -19,7 +19,7 @@ rm -r chroms
 
 
 
-mm10
+#### mm10
 
 ```bash
 #chromFa.tar.gz - The assembly sequence in one file per chromosome.
@@ -61,7 +61,7 @@ ATGCCCCTCAACGTGAACTTCACCAACAGGAACTATGACCTCGACTACGACTCCGTACAGCCCTATTTCATCTGCGACGA
 
 
 ```bash
-cat danRer10.fa EGFP.fa mCherry.fa cmyc.fa > danRer10_RG_cmyc.fa
+cat danRer10.fa EGFP.fa mCherry.fa c_myc.fa > danRer10_RG_cmyc.fa
 
 ```
 
@@ -70,7 +70,13 @@ cat danRer10.fa EGFP.fa mCherry.fa cmyc.fa > danRer10_RG_cmyc.fa
 
 ```bash
 
-GCAGCTNTGTAGTCATCAAGGACTACGGCAAANAGTCCCAGGCTAAGGACGTCATTGAAGAG
+
+mkdir panTro5_UCSC
+cd panTro5_UCSC
+rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/panTro5/bigZips/panTro5.fa.gz .
+tar -xvzf panTro5.fa.gz
+
+panTro5.fa.gz  
 
 
 ```
@@ -106,6 +112,12 @@ mCherry	danRer10_refGene	CDS	1	708	.	+	.	gene_id "mCherry"; transcript_id "mCher
 mCherry danRer10_refGene	exon	1	708	.	+	.	gene_id "mCherry"; transcript_id "mCherry";
 m_cmyc  danRer10_refGene  CDS 1 1320  . + . gene_id "m_cmyc"; transcript_id "m_cmyc";
 m_cmyc  danRer10_refGene  exon 1 1320  . + . gene_id "m_cmyc"; transcript_id "m_cmyc";
+
+
+EGFP    AddedGene        exon    1       778     .       +       0       gene_id "EGFP"; transcript_id "EGFP";
+mCherry AddedGene        exon    1       708     .       +       0       gene_id "mCherry"; transcript_id "mCherry";
+cMyc  AddedGene        exon    1       1320    .       +       0       gene_id "m_cmyc"; transcript_id "m_cmyc";
+
 
 #combine into additional_sequences.gtf
 
