@@ -58,6 +58,15 @@ rule all:
         sorted_reads + "assigned_sorted.bam",
         sorted_reads + "assigned_sorted.bam.bai",
         dge_data + "counts.tsv.gz",
+        cell_stats + "whitelist.txt",
+        fastq_extr + "combined_r2_extracted.fastq.gz",
+        aligned + "Aligned.SortedByCoordinate.out.bam",
+        sorted_reads + "assigned_sorted.bam",
+        sorted_reads + "assigned_sorted.bam.bai",
+        dge_data + "counts.tsv.gz",
+        fastqc_dir + "combined_R1_fastqc.zip",
+        qc_data + "Nucleotide_frequency_in_UMIs.pdf",
+        qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
 
 
 
