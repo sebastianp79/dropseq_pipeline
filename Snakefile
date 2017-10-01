@@ -58,7 +58,7 @@ rule all:
         sorted_reads + "assigned_sorted.bam",
         sorted_reads + "assigned_sorted.bam.bai",
         dge_data + "counts.tsv.gz",
-        fastqc_dir + "combined_R{read_num}_fastqc.zip",
+        fastqc_dir + "combined_R1_fastqc.zip",
         qc_data + "Nucleotide_frequency_in_UMIs.pdf",
         qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
 
