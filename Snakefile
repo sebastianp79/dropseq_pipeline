@@ -58,18 +58,26 @@ rule all:
         sorted_reads + "assigned_sorted.bam",
         sorted_reads + "assigned_sorted.bam.bai",
         dge_data + "counts.tsv.gz",
-        fastqc_dir + "combined_R1_fastqc.zip",
+        cell_stats + "whitelist.txt",
+        fastq_extr + "combined_r2_extracted.fastq.gz",
+        aligned + "Aligned.SortedByCoordinate.out.bam",
+        sorted_reads + "assigned_sorted.bam",
+        sorted_reads + "assigned_sorted.bam.bai",
+        dge_data + "counts.tsv.gz",
+        fastqc_dir + "combined_r1_fastqc.zip",
         qc_data + "Nucleotide_frequency_in_UMIs.pdf",
         qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
+
+
 
 
 #fastqc will be run on merged files
 rule fastqc:
     input:
-        fastq_merged + "combined_R{read_num}.fastq.gz"
+        fastq_merged + "combined_r{read_num}.fastq.gz"
     output:
-        fastqc_dir + "combined_R{read_num}_fastqc.html",
-        fastqc_dir + "combined_R{read_num}_fastqc.zip"
+        fastqc_dir + "combined_r{read_num}_fastqc.html",
+        fastqc_dir + "combined_r{read_num}_fastqc.zip"
     params:
         outdir = fastqc_dir
     shell:
