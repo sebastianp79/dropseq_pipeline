@@ -88,13 +88,13 @@ rule unzip:
     input:
         fastqc_dir + "combined_r1_fastqc.zip"
     output:
-        fastqc_dir + "combined_r1_fastqc/"
+        fastqc_dir + "combined_r1_fastqc/fastqc_data.txt"
     shell:
         "unzip {input}"
 
 rule barcode_qc:
     input:
-        fastqc_dir + "combined_r1_fastqc/fasqc_data.txt"
+        fastqc_dir + "combined_r1_fastqc/fastqc_data.txt"
     output:
         qc_data + "Nucleotide_frequency_in_UMIs.pdf",
         qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
