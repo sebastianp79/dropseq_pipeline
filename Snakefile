@@ -83,7 +83,6 @@ rule fastqc:
     shell:
         "fastqc -o {params.outdir} {input}"
 
-
 rule unzip:
     input:
         fastqc_dir + "combined_r1_fastqc.zip"
