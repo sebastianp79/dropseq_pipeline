@@ -82,14 +82,15 @@ rule fastqc:
     shell:
         "fastqc -o {params.outdir} {input}"
 
-
 rule unzip:
     input:
         fastqc_dir + "combined_r1_fastqc.zip"
     output:
         fastqc_dir + "combined_r1_fastqc/fastqc_data.txt"
+    params:
+        outdir = fastqc_dir
     shell:
-        "unzip {input}"
+        "unzip -d {outdir} {input}"
 
 rule barcode_qc:
     input:
