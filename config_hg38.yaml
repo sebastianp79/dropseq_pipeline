@@ -6,7 +6,7 @@
 proj_dir: /project2/gilad/spott/drop_test/
 
 #directory with additional scripts
-script: /project2/gilad/spott/Pipelines/dropseq_pipeline/Scripts/
+scripts: /project2/gilad/spott/Pipelines/dropseq_pipeline/Scripts/
 
 #logfile
 dir_log: log/
