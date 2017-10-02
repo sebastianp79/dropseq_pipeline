@@ -43,3 +43,4 @@ dependencies:
     - r-dplyr
     - r-ggplot2
     - r-tidyr
+    - r-optparse
