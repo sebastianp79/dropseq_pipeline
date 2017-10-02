@@ -99,7 +99,7 @@ rule barcode_qc:
         qc_data + "Nucleotide_frequency_in_UMIs.pdf",
         qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
     shell:
-        "shell Scripts/Calculate-nuc-freq.sh {input}"
+        "Scripts/Calculate-nuc-freq.sh {input}"
 
 rule fastq_merge_r1:
     input:
