@@ -7,6 +7,8 @@ import os
 #these things should go to the config file
 #configfile: "config.yaml"
 
+#Scripts
+scripts = config["scripts"]
 #expected number of cells (upper limit)
 cell_num = config["cell_num"]
 
@@ -17,6 +19,7 @@ barcode = config["barcode"]
 GenomeIndex = config["genome_index"]
 #gene file
 txn_file = config["txn_file"]
+
 
 pd = config["proj_dir"]
 data = pd + "data/"
@@ -33,7 +36,6 @@ sorted_reads = data + "sorted_reads/"
 assigned = data + "assigned/"
 dge_data = output + "dge_data/"
 qc_data = output + "qc_data/"
-scripts = pd + "Scripts/"
 code = "Code/"
 
 
