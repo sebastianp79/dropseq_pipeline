@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 
 #takes the fastqc_data.txt file and determines the line above the section summarizing nucleotide
