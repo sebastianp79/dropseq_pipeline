@@ -37,7 +37,6 @@ dependencies:
     - subread
     - samtools
     - r-base
-    - trim_galore
     - multiqc
     - cutadapt
     - r-dplyr
