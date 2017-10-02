@@ -90,7 +90,7 @@ rule unzip:
     params:
         outdir = fastqc_dir
     shell:
-        "unzip -d {outdir} {input}"
+        "unzip -d {params.outdir} {input}"
 
 rule barcode_qc:
     input:
