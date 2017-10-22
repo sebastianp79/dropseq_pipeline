@@ -1,3 +1,5 @@
 Seurat_test.Rmd
-output/
 Pipeline_runs/
+output/*
+STAR_indeces/*
+.snakemake/*

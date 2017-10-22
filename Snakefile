@@ -18,7 +18,7 @@ GenomeIndex = config["genome_index"]
 #gene file
 txn_file = config["txn_file"]
 
-#pd = config["proj_dir"]
+pd = config["proj_dir"]
 data = "data/"
 output =  "output/"
 fastq_dir = data + "fastq/"
@@ -33,7 +33,7 @@ sorted_reads = data + "sorted_reads/"
 assigned = data + "assigned/"
 dge_data = output + "dge_data/"
 qc_data = output + "qc_data/"
-scripts = pd + "Scripts/
+scripts = pd + "Scripts/"
 code = "Code/"
 
 
