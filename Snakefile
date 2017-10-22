@@ -200,3 +200,13 @@ rule make_DGE_matrix:
         dge_data + "counts.tsv.gz"
     shell:
         "umi_tools count --wide-format-cell-counts --per-gene --gene-tag=XT --per-cell -I {input} -S {output}"
+
+#Need to add
+# rule make_DGE_matrix_w_duplicates:
+#     input:
+#         sorted_reads + "assigned_sorted.bam",
+#         sorted_reads + "assigned_sorted.bam.bai"
+#     output:
+#         dge_data + "counts.tsv.gz"
+#     shell:
+#         "umi_tools count --wide-format-cell-counts --per-gene --gene-tag=XT --per-cell -I {input} -S {output}"

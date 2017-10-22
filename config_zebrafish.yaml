@@ -2,6 +2,11 @@
 #directories
 #the folder name needs to be changed to project
 proj_dir: /project2/gilad/spott/Dropseq/danRerRG_default/
+
+#directory with additional scripts
+scripts: /project2/gilad/spott/Pipelines/dropseq_pipeline/Scripts/
+
+
 # Make sure to also update path for log files in cluster.json
 dir_log: log/
 # Annotation files ---------
