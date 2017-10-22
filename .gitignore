@@ -1,3 +1,4 @@
 Seurat_test.Rmd
-STAR_index/
-output/
+output/*
+STAR_indeces/*
+.snakemake/*
