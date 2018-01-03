@@ -59,7 +59,6 @@ rule all:
         sorted_reads + "assigned_sorted.bam.bai",
         dge_data + "counts.tsv.gz",
         cell_stats + "whitelist.txt",
-        fastq_extr + "combined_r2_extracted.fastq.gz",
         aligned + "Aligned.SortedByCoordinate.out.bam",
         sorted_reads + "assigned_sorted.bam",
         sorted_reads + "assigned_sorted.bam.bai",
@@ -150,8 +149,10 @@ rule trim_read2:
         r1 = fastq_extr + "combined_r2_extracted.fastq.gz"
     output:
         r1_trim = fastq_extr + "combined_r2_extracted_polyA_adaptor_trimmed.fastq.gz",
+    params:
+        min_len = 30
     shell:
-        "cutadapt -a AAAAAA -g AAGCAGTGGTATCAACGCAGAGTGAATGGG -o {output} {input}"
+        "cutadapt --minimum-length {params.min_len} -a AAAAAA -g AAGCAGTGGTATCAACGCAGAGTGAATGGG -o {output} {input}"
 
 #alignment with STAR using defaults
 rule align:

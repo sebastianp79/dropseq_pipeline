@@ -19,7 +19,8 @@ barcode = config["barcode"]
 GenomeIndex = config["genome_index"]
 #gene file
 txn_file = config["txn_file"]
-
+ref_flat = config["ref_flat"]
+ribosome_int = config["ribosome_intervals"]
 
 pd = config["proj_dir"]
 data = pd + "data/"
@@ -32,15 +33,17 @@ fastq_trim = data + "fastq_trim/"
 cell_stats = data + "cell_stats/"
 aligned = data + "aligned/"
 annotation_data = data + "annotation_data/"
-sorted_reads = data + "sorted_reads/"
-assigned = data + "assigned/"
+sorted_gene_reads = data + "sorted_gene_reads/"
+sorted_transcript_reads = data + "sorted_transcript_reads/"
+assigned_genes = data + "assigned_genes/"
+assigned_transcripts = data + "assigned_transcripts/"
 dge_data = output + "dge_data/"
 qc_data = output + "qc_data/"
 code = "Code/"
 
 
 #make sure the project directory actually exists
-assert os.path.exists(pd), "Project directory exists"
+#assert os.path.exists(pd), "Project directory exists"
 
 # Directory to send log files. Needs to be created manually since it
 # is not a file created by a Snakemake rule.
@@ -56,21 +59,26 @@ rule all:
     input:
         cell_stats + "whitelist.txt",
         fastq_extr + "combined_r2_extracted.fastq.gz",
+        fastq_extr + "combined_r1_extracted.fastq.gz",
+        fastq_merged + "combined_r1.fastq.gz",
+        fastq_merged + "combined_r2.fastq.gz",
         aligned + "Aligned.SortedByCoordinate.out.bam",
-        sorted_reads + "assigned_sorted.bam",
-        sorted_reads + "assigned_sorted.bam.bai",
-        dge_data + "counts.tsv.gz",
         cell_stats + "whitelist.txt",
-        fastq_extr + "combined_r2_extracted.fastq.gz",
         aligned + "Aligned.SortedByCoordinate.out.bam",
-        sorted_reads + "assigned_sorted.bam",
-        sorted_reads + "assigned_sorted.bam.bai",
-        dge_data + "counts.tsv.gz",
+        sorted_gene_reads + "assigned_sorted.bam",
+        sorted_gene_reads + "assigned_sorted.bam.bai",
+        sorted_transcript_reads + "assigned_sorted.bam",
+        sorted_transcript_reads + "assigned_sorted.bam.bai",
+        dge_data + "gene_counts.tsv.gz",
+        dge_data + "transcript_counts.tsv.gz",
         fastqc_dir + "combined_r1_fastqc.zip",
         qc_data + "Nucleotide_frequency_in_UMIs.pdf",
-        qc_data + "Nucleotide_frequency_in_cell_barcode.pdf"
-
-
+        qc_data + "Nucleotide_frequency_in_cell_barcode.pdf",
+        output + "RNAmetrics.picard.txt",
+        assigned_genes + "gene_assigned.summary",
+        assigned_genes +  "Aligned.SortedByCoordinate.out.bam.featureCounts.bam",
+        assigned_transcripts + "transcript_assigned.summary",
+        assigned_transcripts +  "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
 
 #fastqc will be run on merged files
 rule fastqc:
@@ -168,39 +176,101 @@ rule align:
     shell:
         "STAR --runThreadN {threads} --genomeDir {input.ref_genome} --readFilesIn {input.fq} --readFilesCommand zcat --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outStd BAM_SortedByCoordinate > {output}"
 
-# assign reads to transcripts
+# assign reads to genes
+# this rule specifically selects gene_id as meta feature to count reads
+rule reads_to_genes:
+    input:
+        bam = aligned + "Aligned.SortedByCoordinate.out.bam",
+        features = txn_file
+    output:
+        assigned_feat = assigned_genes + "gene_assigned.summary",
+        bam_counts = assigned_genes + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
+    params:
+        feature = "gene_id",
+    threads: 4
+    shell:
+        """
+        featureCounts -a {input.features} -o {output.assigned_feat} -g {params.feature} -R BAM {input.bam} -T {threads}
+        """
+
+
+rule sort_gene_bams:
+    input:
+        assigned_genes + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
+    output:
+        sorted_gene_reads + "assigned_sorted.bam"
+    shell:
+        "samtools sort -o {output} -O bam {input}"
+
+rule index_gene_bams:
+    input:
+        sorted_gene_reads + "assigned_sorted.bam"
+    output:
+        sorted_gene_reads + "assigned_sorted.bam.bai"
+    shell:
+        "samtools index {input}"
+
+rule make_gene_DGE_matrix:
+    input:
+        sorted_gene_reads + "assigned_sorted.bam",
+        sorted_gene_reads + "assigned_sorted.bam.bai"
+    output:
+        dge_data + "gene_counts.tsv.gz"
+    shell:
+        "umi_tools count --wide-format-cell-counts --per-gene --gene-tag=XT --per-cell -I {input} -S {output}"
+
+
+## assig reads to transcripts
+# this rule specifically selects transcript_id as meta feature to count reads
 rule reads_to_transcripts:
     input:
         bam = aligned + "Aligned.SortedByCoordinate.out.bam",
         features = txn_file
     output:
-        assigned_feat = assigned + "gene_assigned.summary",
-        bam_counts = assigned + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
+        assigned_feat = assigned_transcripts + "transcript_assigned.summary",
+        bam_counts = assigned_transcripts + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
+    params:
+        feature = "transcript_id",
     threads: 4
     shell:
-        "featureCounts -a {input.features} -o {output.assigned_feat} -R BAM {input.bam} -T {threads}"
+        """
+        featureCounts -a {input.features} -o {output.assigned_feat} -R BAM {input.bam} -g {params.feature} -T {threads}
+        """
 
-rule sort_bams:
+rule sort_transcript_bams:
     input:
-        assigned + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
+        assigned_transcripts + "Aligned.SortedByCoordinate.out.bam.featureCounts.bam"
     output:
-        sorted_reads + "assigned_sorted.bam"
+        sorted_transcript_reads + "assigned_sorted.bam"
     shell:
         "samtools sort -o {output} -O bam {input}"
 
-rule index_bams:
+rule index_transcript_bams:
     input:
-        sorted_reads + "assigned_sorted.bam"
+        sorted_transcript_reads + "assigned_sorted.bam"
     output:
-        sorted_reads + "assigned_sorted.bam.bai"
+        sorted_transcript_reads + "assigned_sorted.bam.bai"
     shell:
         "samtools index {input}"
 
-rule make_DGE_matrix:
+rule make_transcript_DGE_matrix:
     input:
-        sorted_reads + "assigned_sorted.bam",
-        sorted_reads + "assigned_sorted.bam.bai"
+        sorted_transcript_reads + "assigned_sorted.bam",
+        sorted_transcript_reads + "assigned_sorted.bam.bai"
     output:
-        dge_data + "counts.tsv.gz"
+        dge_data + "transcript_counts.tsv.gz"
     shell:
         "umi_tools count --wide-format-cell-counts --per-gene --gene-tag=XT --per-cell -I {input} -S {output}"
+
+rule collect_rna_metrics:
+    input:
+        bam = sorted_gene_reads + "assigned_sorted.bam",
+        ref_flat = ref_flat,
+        ribosome_int = ribosome_int
+    output:
+        rna_metrics = output + "RNAmetrics.picard.txt"
+    params:
+        strand = "SECOND_READ_TRANSCRIPTION_STRAND",
+        memory = "-Xmx12G"
+    shell:
+        "picard CollectRnaSeqMetrics {params.memory} I={input.bam} O={output.rna_metrics} REF_FLAT={input.ref_flat} STRAND={params.strand} RIBOSOMAL_INTERVALS={input.ribosome_int}"

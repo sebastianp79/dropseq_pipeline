@@ -33,17 +33,34 @@
 	    "mem": 32000,
       "n": 4
     },
-    "reads_to_transcripts" :
+    "reads_to_genes" :
     {
-	    "mem": 32000,
+	    "mem": 48000,
       "tasks": 4
     },
-    "sort_bams" :
+    "sort_gene_bams" :
     {
 	    "mem" : 8000
     },
-    "make_DGE_matrix" :
+    "make_gene_DGE_matrix" :
     {
 	    "mem" : 16000
+    },
+    "reads_to_transcripts" :
+    {
+      "mem": 48000,
+      "tasks": 4
+    },
+    "sort_transcript_bams" :
+    {
+      "mem" : 8000
+    },
+    "make_transcript_DGE_matrix" :
+    {
+      "mem" : 16000
+    },
+    "collect_rna_metrics" :
+    {
+      "mem" : 20000
     }
 }

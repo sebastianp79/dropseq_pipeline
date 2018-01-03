@@ -1,0 +1,562 @@
+STAR version=STAR_2.5.3a
+STAR compilation time,server,dir=Fri Mar 17 11:35:46 EDT 2017 florence.cshl.edu:/sonas-hs/gingeras/nlsas_norepl/user/dobin/STAR/STAR.sandbox/source
+##### DEFAULT parameters:
+versionSTAR                       20201
+versionGenome                     20101   20200   
+parametersFiles                   -   
+sysShell                          -
+runMode                           alignReads
+runThreadN                        1
+runDirPerm                        User_RWX
+runRNGseed                        777
+genomeDir                         ./GenomeDir/
+genomeLoad                        NoSharedMemory
+genomeFastaFiles                  -   
+genomeChainFiles                  -   
+genomeSAindexNbases               14
+genomeChrBinNbits                 18
+genomeSAsparseD                   1
+genomeSuffixLengthMax             18446744073709551615
+genomeFileSizes                   0   
+readFilesIn                       Read1   Read2   
+readFilesCommand                  -   
+readMatesLengthsIn                NotEqual
+readMapNumber                     18446744073709551615
+readNameSeparator                 /   
+inputBAMfile                      -
+bamRemoveDuplicatesType           -
+bamRemoveDuplicatesMate2basesN    0
+limitGenomeGenerateRAM            31000000000
+limitIObufferSize                 150000000
+limitOutSAMoneReadBytes           100000
+limitOutSJcollapsed               1000000
+limitOutSJoneRead                 1000
+limitBAMsortRAM                   0
+limitSjdbInsertNsj                1000000
+outFileNamePrefix                 ./
+outTmpDir                         -
+outTmpKeep                        None
+outStd                            Log
+outReadsUnmapped                  None
+outQSconversionAdd                0
+outMultimapperOrder               Old_2.4
+outSAMtype                        SAM   
+outSAMmode                        Full
+outSAMstrandField                 None
+outSAMattributes                  Standard   
+outSAMunmapped                    None   
+outSAMorder                       Paired
+outSAMprimaryFlag                 OneBestScore
+outSAMreadID                      Standard
+outSAMmapqUnique                  255
+outSAMflagOR                      0
+outSAMflagAND                     65535
+outSAMattrRGline                  -   
+outSAMheaderHD                    -   
+outSAMheaderPG                    -   
+outSAMheaderCommentFile           -
+outBAMcompression                 1
+outBAMsortingThreadN              0
+outSAMfilter                      None   
+outSAMmultNmax                    18446744073709551615
+outSAMattrIHstart                 1
+outSJfilterReads                  All
+outSJfilterCountUniqueMin         3   1   1   1   
+outSJfilterCountTotalMin          3   1   1   1   
+outSJfilterOverhangMin            30   12   12   12   
+outSJfilterDistToOtherSJmin       10   0   5   10   
+outSJfilterIntronMaxVsReadN       50000   100000   200000   
+outWigType                        None   
+outWigStrand                      Stranded   
+outWigReferencesPrefix            -
+outWigNorm                        RPM   
+outFilterType                     Normal
+outFilterMultimapNmax             10
+outFilterMultimapScoreRange       1
+outFilterScoreMin                 0
+outFilterScoreMinOverLread        0.66
+outFilterMatchNmin                0
+outFilterMatchNminOverLread       0.66
+outFilterMismatchNmax             10
+outFilterMismatchNoverLmax        0.3
+outFilterMismatchNoverReadLmax    1
+outFilterIntronMotifs             None
+clip5pNbases                      0   
+clip3pNbases                      0   
+clip3pAfterAdapterNbases          0   
+clip3pAdapterSeq                  -   
+clip3pAdapterMMp                  0.1   
+winBinNbits                       16
+winAnchorDistNbins                9
+winFlankNbins                     4
+winAnchorMultimapNmax             50
+winReadCoverageRelativeMin        0.5
+winReadCoverageBasesMin           0
+scoreGap                          0
+scoreGapNoncan                    -8
+scoreGapGCAG                      -4
+scoreGapATAC                      -8
+scoreStitchSJshift                1
+scoreGenomicLengthLog2scale       -0.25
+scoreDelBase                      -2
+scoreDelOpen                      -2
+scoreInsOpen                      -2
+scoreInsBase                      -2
+seedSearchLmax                    0
+seedSearchStartLmax               50
+seedSearchStartLmaxOverLread      1
+seedPerReadNmax                   1000
+seedPerWindowNmax                 50
+seedNoneLociPerWindow             10
+seedMultimapNmax                  10000
+alignIntronMin                    21
+alignIntronMax                    0
+alignMatesGapMax                  0
+alignTranscriptsPerReadNmax       10000
+alignSJoverhangMin                5
+alignSJDBoverhangMin              3
+alignSJstitchMismatchNmax         0   -1   0   0   
+alignSplicedMateMapLmin           0
+alignSplicedMateMapLminOverLmate    0.66
+alignWindowsPerReadNmax           10000
+alignTranscriptsPerWindowNmax     100
+alignEndsType                     Local
+alignSoftClipAtReferenceEnds      Yes
+alignEndsProtrude                 0   ConcordantPair   
+chimSegmentMin                    0
+chimScoreMin                      0
+chimScoreDropMax                  20
+chimScoreSeparation               10
+chimScoreJunctionNonGTAG          -1
+chimMainSegmentMultNmax           10
+chimJunctionOverhangMin           20
+chimOutType                       SeparateSAMold   
+chimFilter                        banGenomicN   
+chimSegmentReadGapMax             0
+sjdbFileChrStartEnd               -   
+sjdbGTFfile                       -
+sjdbGTFchrPrefix                  -
+sjdbGTFfeatureExon                exon
+sjdbGTFtagExonParentTranscript    transcript_id
+sjdbGTFtagExonParentGene          gene_id
+sjdbOverhang                      100
+sjdbScore                         2
+sjdbInsertSave                    Basic
+quantMode                         -   
+quantTranscriptomeBAMcompression    1
+quantTranscriptomeBan             IndelSoftclipSingleend
+twopass1readsN                    18446744073709551615
+twopassMode                       None
+##### Command Line:
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61 --genomeFastaFiles /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa --sjdbGTFfile /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf --sjdbGTFtagExonParentGene gene_id --sjdbOverhang 51
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+runThreadN                    2     ~RE-DEFINED
+runMode                       genomeGenerate     ~RE-DEFINED
+genomeDir                     /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61     ~RE-DEFINED
+genomeFastaFiles              /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa        ~RE-DEFINED
+sjdbGTFfile                   /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbOverhang                  51     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runMode                           genomeGenerate
+runThreadN                        2
+genomeDir                         /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61
+genomeFastaFiles                  /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa   
+sjdbGTFfile                       /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf
+sjdbGTFtagExonParentGene          gene_id
+sjdbOverhang                      51
+
+-------------------------------
+##### Final effective command line:
+STAR   --runMode genomeGenerate   --runThreadN 2   --genomeDir /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61   --genomeFastaFiles /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa      --sjdbGTFfile /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf   --sjdbGTFtagExonParentGene gene_id   --sjdbOverhang 51
+
+##### Final parameters after user input--------------------------------:
+versionSTAR                       20201
+versionGenome                     20101   20200   
+parametersFiles                   -   
+sysShell                          -
+runMode                           genomeGenerate
+runThreadN                        2
+runDirPerm                        User_RWX
+runRNGseed                        777
+genomeDir                         /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61
+genomeLoad                        NoSharedMemory
+genomeFastaFiles                  /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa   
+genomeChainFiles                  -   
+genomeSAindexNbases               14
+genomeChrBinNbits                 18
+genomeSAsparseD                   1
+genomeSuffixLengthMax             18446744073709551615
+genomeFileSizes                   0   
+readFilesIn                       Read1   Read2   
+readFilesCommand                  -   
+readMatesLengthsIn                NotEqual
+readMapNumber                     18446744073709551615
+readNameSeparator                 /   
+inputBAMfile                      -
+bamRemoveDuplicatesType           -
+bamRemoveDuplicatesMate2basesN    0
+limitGenomeGenerateRAM            31000000000
+limitIObufferSize                 150000000
+limitOutSAMoneReadBytes           100000
+limitOutSJcollapsed               1000000
+limitOutSJoneRead                 1000
+limitBAMsortRAM                   0
+limitSjdbInsertNsj                1000000
+outFileNamePrefix                 ./
+outTmpDir                         -
+outTmpKeep                        None
+outStd                            Log
+outReadsUnmapped                  None
+outQSconversionAdd                0
+outMultimapperOrder               Old_2.4
+outSAMtype                        SAM   
+outSAMmode                        Full
+outSAMstrandField                 None
+outSAMattributes                  Standard   
+outSAMunmapped                    None   
+outSAMorder                       Paired
+outSAMprimaryFlag                 OneBestScore
+outSAMreadID                      Standard
+outSAMmapqUnique                  255
+outSAMflagOR                      0
+outSAMflagAND                     65535
+outSAMattrRGline                  -   
+outSAMheaderHD                    -   
+outSAMheaderPG                    -   
+outSAMheaderCommentFile           -
+outBAMcompression                 1
+outBAMsortingThreadN              0
+outSAMfilter                      None   
+outSAMmultNmax                    18446744073709551615
+outSAMattrIHstart                 1
+outSJfilterReads                  All
+outSJfilterCountUniqueMin         3   1   1   1   
+outSJfilterCountTotalMin          3   1   1   1   
+outSJfilterOverhangMin            30   12   12   12   
+outSJfilterDistToOtherSJmin       10   0   5   10   
+outSJfilterIntronMaxVsReadN       50000   100000   200000   
+outWigType                        None   
+outWigStrand                      Stranded   
+outWigReferencesPrefix            -
+outWigNorm                        RPM   
+outFilterType                     Normal
+outFilterMultimapNmax             10
+outFilterMultimapScoreRange       1
+outFilterScoreMin                 0
+outFilterScoreMinOverLread        0.66
+outFilterMatchNmin                0
+outFilterMatchNminOverLread       0.66
+outFilterMismatchNmax             10
+outFilterMismatchNoverLmax        0.3
+outFilterMismatchNoverReadLmax    1
+outFilterIntronMotifs             None
+clip5pNbases                      0   
+clip3pNbases                      0   
+clip3pAfterAdapterNbases          0   
+clip3pAdapterSeq                  -   
+clip3pAdapterMMp                  0.1   
+winBinNbits                       16
+winAnchorDistNbins                9
+winFlankNbins                     4
+winAnchorMultimapNmax             50
+winReadCoverageRelativeMin        0.5
+winReadCoverageBasesMin           0
+scoreGap                          0
+scoreGapNoncan                    -8
+scoreGapGCAG                      -4
+scoreGapATAC                      -8
+scoreStitchSJshift                1
+scoreGenomicLengthLog2scale       -0.25
+scoreDelBase                      -2
+scoreDelOpen                      -2
+scoreInsOpen                      -2
+scoreInsBase                      -2
+seedSearchLmax                    0
+seedSearchStartLmax               50
+seedSearchStartLmaxOverLread      1
+seedPerReadNmax                   1000
+seedPerWindowNmax                 50
+seedNoneLociPerWindow             10
+seedMultimapNmax                  10000
+alignIntronMin                    21
+alignIntronMax                    0
+alignMatesGapMax                  0
+alignTranscriptsPerReadNmax       10000
+alignSJoverhangMin                5
+alignSJDBoverhangMin              3
+alignSJstitchMismatchNmax         0   -1   0   0   
+alignSplicedMateMapLmin           0
+alignSplicedMateMapLminOverLmate    0.66
+alignWindowsPerReadNmax           10000
+alignTranscriptsPerWindowNmax     100
+alignEndsType                     Local
+alignSoftClipAtReferenceEnds      Yes
+alignEndsProtrude                 0   ConcordantPair   
+chimSegmentMin                    0
+chimScoreMin                      0
+chimScoreDropMax                  20
+chimScoreSeparation               10
+chimScoreJunctionNonGTAG          -1
+chimMainSegmentMultNmax           10
+chimJunctionOverhangMin           20
+chimOutType                       SeparateSAMold   
+chimFilter                        banGenomicN   
+chimSegmentReadGapMax             0
+sjdbFileChrStartEnd               -   
+sjdbGTFfile                       /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf
+sjdbGTFchrPrefix                  -
+sjdbGTFfeatureExon                exon
+sjdbGTFtagExonParentTranscript    transcript_id
+sjdbGTFtagExonParentGene          gene_id
+sjdbOverhang                      51
+sjdbScore                         2
+sjdbInsertSave                    Basic
+quantMode                         -   
+quantTranscriptomeBAMcompression    1
+quantTranscriptomeBan             IndelSoftclipSingleend
+twopass1readsN                    18446744073709551615
+twopassMode                       None
+----------------------------------------
+
+Finished loading and checking parameters
+Dec 15 12:51:27 ... starting to generate Genome files
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 0  "chr1" chrStart: 0
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 1  "chr10" chrStart: 249036800
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 2  "chr11" chrStart: 382992384
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 3  "chr11_KI270721v1_random" chrStart: 518258688
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 4  "chr12" chrStart: 518520832
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 5  "chr13" chrStart: 651952128
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 6  "chr14" chrStart: 766509056
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 7  "chr14_GL000009v2_random" chrStart: 873725952
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 8  "chr14_GL000194v1_random" chrStart: 873988096
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 9  "chr14_GL000225v1_random" chrStart: 874250240
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 10  "chr14_KI270722v1_random" chrStart: 874512384
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 11  "chr14_KI270723v1_random" chrStart: 874774528
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 12  "chr14_KI270724v1_random" chrStart: 875036672
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 13  "chr14_KI270725v1_random" chrStart: 875298816
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 14  "chr14_KI270726v1_random" chrStart: 875560960
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 15  "chr15" chrStart: 875823104
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 16  "chr15_KI270727v1_random" chrStart: 978059264
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 17  "chr16" chrStart: 978583552
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 18  "chr16_KI270728v1_random" chrStart: 1069023232
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 19  "chr17" chrStart: 1071120384
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 20  "chr17_GL000205v2_random" chrStart: 1154482176
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 21  "chr17_KI270729v1_random" chrStart: 1154744320
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 22  "chr17_KI270730v1_random" chrStart: 1155268608
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 23  "chr18" chrStart: 1155530752
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 24  "chr19" chrStart: 1236008960
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 25  "chr1_KI270706v1_random" chrStart: 1294729216
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 26  "chr1_KI270707v1_random" chrStart: 1294991360
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 27  "chr1_KI270708v1_random" chrStart: 1295253504
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 28  "chr1_KI270709v1_random" chrStart: 1295515648
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 29  "chr1_KI270710v1_random" chrStart: 1295777792
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 30  "chr1_KI270711v1_random" chrStart: 1296039936
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 31  "chr1_KI270712v1_random" chrStart: 1296302080
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 32  "chr1_KI270713v1_random" chrStart: 1296564224
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 33  "chr1_KI270714v1_random" chrStart: 1296826368
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 34  "chr2" chrStart: 1297088512
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 35  "chr20" chrStart: 1539309568
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 36  "chr21" chrStart: 1603796992
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 37  "chr22" chrStart: 1650720768
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 38  "chr22_KI270731v1_random" chrStart: 1701576704
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 39  "chr22_KI270732v1_random" chrStart: 1701838848
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 40  "chr22_KI270733v1_random" chrStart: 1702100992
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 41  "chr22_KI270734v1_random" chrStart: 1702363136
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 42  "chr22_KI270735v1_random" chrStart: 1702625280
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 43  "chr22_KI270736v1_random" chrStart: 1702887424
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 44  "chr22_KI270737v1_random" chrStart: 1703149568
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 45  "chr22_KI270738v1_random" chrStart: 1703411712
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 46  "chr22_KI270739v1_random" chrStart: 1703673856
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 47  "chr2_KI270715v1_random" chrStart: 1703936000
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 48  "chr2_KI270716v1_random" chrStart: 1704198144
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 49  "chr3" chrStart: 1704460288
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 50  "chr3_GL000221v1_random" chrStart: 1902903296
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 51  "chr4" chrStart: 1903165440
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 52  "chr4_GL000008v2_random" chrStart: 2093481984
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 53  "chr5" chrStart: 2093744128
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 54  "chr5_GL000208v1_random" chrStart: 2275409920
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 55  "chr6" chrStart: 2275672064
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 56  "chr7" chrStart: 2446589952
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 57  "chr8" chrStart: 2605973504
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 58  "chr9" chrStart: 2751201280
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 59  "chr9_KI270717v1_random" chrStart: 2889613312
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 60  "chr9_KI270718v1_random" chrStart: 2889875456
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 61  "chr9_KI270719v1_random" chrStart: 2890137600
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 62  "chr9_KI270720v1_random" chrStart: 2890399744
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 63  "chrM" chrStart: 2890661888
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 64  "chrUn_GL000195v1" chrStart: 2890924032
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 65  "chrUn_GL000213v1" chrStart: 2891186176
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 66  "chrUn_GL000214v1" chrStart: 2891448320
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 67  "chrUn_GL000216v2" chrStart: 2891710464
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 68  "chrUn_GL000218v1" chrStart: 2891972608
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 69  "chrUn_GL000219v1" chrStart: 2892234752
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 70  "chrUn_GL000220v1" chrStart: 2892496896
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 71  "chrUn_GL000224v1" chrStart: 2892759040
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 72  "chrUn_GL000226v1" chrStart: 2893021184
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 73  "chrUn_KI270302v1" chrStart: 2893283328
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 74  "chrUn_KI270303v1" chrStart: 2893545472
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 75  "chrUn_KI270304v1" chrStart: 2893807616
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 76  "chrUn_KI270305v1" chrStart: 2894069760
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 77  "chrUn_KI270310v1" chrStart: 2894331904
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 78  "chrUn_KI270311v1" chrStart: 2894594048
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 79  "chrUn_KI270312v1" chrStart: 2894856192
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 80  "chrUn_KI270315v1" chrStart: 2895118336
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 81  "chrUn_KI270316v1" chrStart: 2895380480
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 82  "chrUn_KI270317v1" chrStart: 2895642624
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 83  "chrUn_KI270320v1" chrStart: 2895904768
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 84  "chrUn_KI270322v1" chrStart: 2896166912
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 85  "chrUn_KI270329v1" chrStart: 2896429056
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 86  "chrUn_KI270330v1" chrStart: 2896691200
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 87  "chrUn_KI270333v1" chrStart: 2896953344
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 88  "chrUn_KI270334v1" chrStart: 2897215488
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 89  "chrUn_KI270335v1" chrStart: 2897477632
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 90  "chrUn_KI270336v1" chrStart: 2897739776
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 91  "chrUn_KI270337v1" chrStart: 2898001920
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 92  "chrUn_KI270338v1" chrStart: 2898264064
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 93  "chrUn_KI270340v1" chrStart: 2898526208
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 94  "chrUn_KI270362v1" chrStart: 2898788352
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 95  "chrUn_KI270363v1" chrStart: 2899050496
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 96  "chrUn_KI270364v1" chrStart: 2899312640
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 97  "chrUn_KI270366v1" chrStart: 2899574784
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 98  "chrUn_KI270371v1" chrStart: 2899836928
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 99  "chrUn_KI270372v1" chrStart: 2900099072
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 100  "chrUn_KI270373v1" chrStart: 2900361216
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 101  "chrUn_KI270374v1" chrStart: 2900623360
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 102  "chrUn_KI270375v1" chrStart: 2900885504
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 103  "chrUn_KI270376v1" chrStart: 2901147648
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 104  "chrUn_KI270378v1" chrStart: 2901409792
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 105  "chrUn_KI270379v1" chrStart: 2901671936
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 106  "chrUn_KI270381v1" chrStart: 2901934080
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 107  "chrUn_KI270382v1" chrStart: 2902196224
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 108  "chrUn_KI270383v1" chrStart: 2902458368
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 109  "chrUn_KI270384v1" chrStart: 2902720512
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 110  "chrUn_KI270385v1" chrStart: 2902982656
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 111  "chrUn_KI270386v1" chrStart: 2903244800
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 112  "chrUn_KI270387v1" chrStart: 2903506944
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 113  "chrUn_KI270388v1" chrStart: 2903769088
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 114  "chrUn_KI270389v1" chrStart: 2904031232
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 115  "chrUn_KI270390v1" chrStart: 2904293376
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 116  "chrUn_KI270391v1" chrStart: 2904555520
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 117  "chrUn_KI270392v1" chrStart: 2904817664
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 118  "chrUn_KI270393v1" chrStart: 2905079808
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 119  "chrUn_KI270394v1" chrStart: 2905341952
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 120  "chrUn_KI270395v1" chrStart: 2905604096
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 121  "chrUn_KI270396v1" chrStart: 2905866240
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 122  "chrUn_KI270411v1" chrStart: 2906128384
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 123  "chrUn_KI270412v1" chrStart: 2906390528
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 124  "chrUn_KI270414v1" chrStart: 2906652672
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 125  "chrUn_KI270417v1" chrStart: 2906914816
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 126  "chrUn_KI270418v1" chrStart: 2907176960
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 127  "chrUn_KI270419v1" chrStart: 2907439104
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 128  "chrUn_KI270420v1" chrStart: 2907701248
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 129  "chrUn_KI270422v1" chrStart: 2907963392
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 130  "chrUn_KI270423v1" chrStart: 2908225536
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 131  "chrUn_KI270424v1" chrStart: 2908487680
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 132  "chrUn_KI270425v1" chrStart: 2908749824
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 133  "chrUn_KI270429v1" chrStart: 2909011968
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 134  "chrUn_KI270435v1" chrStart: 2909274112
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 135  "chrUn_KI270438v1" chrStart: 2909536256
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 136  "chrUn_KI270442v1" chrStart: 2909798400
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 137  "chrUn_KI270448v1" chrStart: 2910322688
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 138  "chrUn_KI270465v1" chrStart: 2910584832
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 139  "chrUn_KI270466v1" chrStart: 2910846976
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 140  "chrUn_KI270467v1" chrStart: 2911109120
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 141  "chrUn_KI270468v1" chrStart: 2911371264
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 142  "chrUn_KI270507v1" chrStart: 2911633408
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 143  "chrUn_KI270508v1" chrStart: 2911895552
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 144  "chrUn_KI270509v1" chrStart: 2912157696
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 145  "chrUn_KI270510v1" chrStart: 2912419840
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 146  "chrUn_KI270511v1" chrStart: 2912681984
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 147  "chrUn_KI270512v1" chrStart: 2912944128
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 148  "chrUn_KI270515v1" chrStart: 2913206272
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 149  "chrUn_KI270516v1" chrStart: 2913468416
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 150  "chrUn_KI270517v1" chrStart: 2913730560
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 151  "chrUn_KI270518v1" chrStart: 2913992704
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 152  "chrUn_KI270519v1" chrStart: 2914254848
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 153  "chrUn_KI270521v1" chrStart: 2914516992
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 154  "chrUn_KI270522v1" chrStart: 2914779136
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 155  "chrUn_KI270528v1" chrStart: 2915041280
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 156  "chrUn_KI270529v1" chrStart: 2915303424
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 157  "chrUn_KI270530v1" chrStart: 2915565568
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 158  "chrUn_KI270538v1" chrStart: 2915827712
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 159  "chrUn_KI270539v1" chrStart: 2916089856
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 160  "chrUn_KI270544v1" chrStart: 2916352000
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 161  "chrUn_KI270548v1" chrStart: 2916614144
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 162  "chrUn_KI270579v1" chrStart: 2916876288
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 163  "chrUn_KI270580v1" chrStart: 2917138432
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 164  "chrUn_KI270581v1" chrStart: 2917400576
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 165  "chrUn_KI270582v1" chrStart: 2917662720
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 166  "chrUn_KI270583v1" chrStart: 2917924864
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 167  "chrUn_KI270584v1" chrStart: 2918187008
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 168  "chrUn_KI270587v1" chrStart: 2918449152
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 169  "chrUn_KI270588v1" chrStart: 2918711296
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 170  "chrUn_KI270589v1" chrStart: 2918973440
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 171  "chrUn_KI270590v1" chrStart: 2919235584
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 172  "chrUn_KI270591v1" chrStart: 2919497728
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 173  "chrUn_KI270593v1" chrStart: 2919759872
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 174  "chrUn_KI270741v1" chrStart: 2920022016
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 175  "chrUn_KI270742v1" chrStart: 2920284160
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 176  "chrUn_KI270743v1" chrStart: 2920546304
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 177  "chrUn_KI270744v1" chrStart: 2920808448
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 178  "chrUn_KI270745v1" chrStart: 2921070592
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 179  "chrUn_KI270746v1" chrStart: 2921332736
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 180  "chrUn_KI270747v1" chrStart: 2921594880
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 181  "chrUn_KI270748v1" chrStart: 2921857024
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 182  "chrUn_KI270749v1" chrStart: 2922119168
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 183  "chrUn_KI270750v1" chrStart: 2922381312
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 184  "chrUn_KI270751v1" chrStart: 2922643456
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 185  "chrUn_KI270752v1" chrStart: 2922905600
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 186  "chrUn_KI270753v1" chrStart: 2923167744
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 187  "chrUn_KI270754v1" chrStart: 2923429888
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 188  "chrUn_KI270755v1" chrStart: 2923692032
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 189  "chrUn_KI270756v1" chrStart: 2923954176
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 190  "chrUn_KI270757v1" chrStart: 2924216320
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 191  "chrX" chrStart: 2924478464
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 192  "chrY" chrStart: 3080716288
+/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/hg38_ucsc.fa : chr # 193  "chrY_KI270740v1_random" chrStart: 3138125824
+Number of SA indices: 5897255510
+Dec 15 12:52:32 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 7;   chunks size limit: 7416961216 bytes
+Dec 15 12:52:47 ... sorting Suffix Array chunks and saving them to disk...
+Writing 7262119000 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_1 ; empty space on disk = 1275649495924736 bytes ... done
+Writing 7387598992 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_0 ; empty space on disk = 1275640132141056 bytes ... done
+Writing 7277796936 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_2 ; empty space on disk = 1275601859117056 bytes ... done
+Writing 7397582040 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_3 ; empty space on disk = 1275592992358400 bytes ... done
+Writing 7223982680 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_4 ; empty space on disk = 1275373304152064 bytes ... done
+Writing 7268021096 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_5 ; empty space on disk = 1275339513790464 bytes ... done
+Writing 3360943336 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA_6 ; empty space on disk = 1275264923336704 bytes ... done
+Dec 15 14:52:23 ... loading chunks from disk, packing SA...
+Dec 15 14:53:37 ... finished generating suffix array
+Dec 15 14:53:37 ... generating Suffix Array index
+Dec 15 14:57:01 ... completed Suffix Array index
+Dec 15 14:57:01 ..... processing annotations GTF
+Processing sjdbGTFfile=/project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf, found:
+		200401 transcripts
+		1200453 exons (non-collapsed)
+		353484 collapsed junctions
+Dec 15 14:57:13 ..... finished GTF processing
+Dec 15 14:57:13   Loaded database junctions from the GTF file: /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_UCSC/gencode.v27.annotation.gtf: 353484 total junctions
+
+WARNING: long repeat for junction # 117193 : chr15 88855522 88855578; left shift = 14; right shift = 255
+Dec 15 14:57:14   Finished preparing junctions
+Dec 15 14:57:14 ..... inserting junctions into the genome indices
+Dec 15 14:59:06   Finished SA search: number of new junctions=353424, old junctions=0
+Dec 15 14:59:32   Finished sorting SA indicesL nInd=72098496
+Dec 15 15:00:48   Finished inserting junction indices
+Dec 15 15:01:15   Finished SAi
+Dec 15 15:01:15 ..... finished inserting junctions into genome
+Dec 15 15:01:15 ... writing Genome to disk ...
+Writing 3174790640 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/Genome ; empty space on disk = 1275254434430976 bytes ... done
+SA size in bytes: 24623585278
+Dec 15 15:01:18 ... writing Suffix Array to disk ...
+Writing 24623585278 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SA ; empty space on disk = 1275251259342848 bytes ... done
+Dec 15 15:01:37 ... writing SAindex to disk
+Writing 8 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SAindex ; empty space on disk = 1275226635632640 bytes ... done
+Writing 120 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SAindex ; empty space on disk = 1275226635632640 bytes ... done
+Writing 1565873491 bytes into /project2/gilad/spott/Pipelines/dropseq_pipeline/STAR_indeces/hg38_noalt_juncGencodeV27_61/SAindex ; empty space on disk = 1275226635632640 bytes ... done
+Dec 15 15:01:40 ..... finished successfully
+DONE: Genome generation, EXITING

@@ -89,6 +89,11 @@ hg38
 ```bash
 Release 27 (GRCh38.p10)
 ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_27/gencode.v27.annotation.gtf.gz
+#also prepare a gtf file version without pseudogenes
+
+less gencode.v27.annotation.gtf |grep -v "pseudogene" > gencode.v27.annotation.no.pseudo.gtf
+
+
 ```
 
 
@@ -96,6 +101,8 @@ mm10
 ```bash
 Release M15 (GRCm38.p5)
 ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_mouse/release_M15/gencode.vM15.annotation.gtf.gz
+
+
 
 ```
 
@@ -114,6 +121,8 @@ m_cmyc  danRer10_refGene  CDS 1 1320  . + . gene_id "m_cmyc"; transcript_id "m_c
 m_cmyc  danRer10_refGene  exon 1 1320  . + . gene_id "m_cmyc"; transcript_id "m_cmyc";
 
 
+
+#just add the below:
 EGFP    AddedGene        exon    1       778     .       +       0       gene_id "EGFP"; transcript_id "EGFP";
 mCherry AddedGene        exon    1       708     .       +       0       gene_id "mCherry"; transcript_id "mCherry";
 cMyc  AddedGene        exon    1       1320    .       +       0       gene_id "m_cmyc"; transcript_id "m_cmyc";
@@ -153,3 +162,73 @@ This index includes the fluorochromes EGFP and mCherry as well as the oncogene c
 
 STAR --runThreadN 2 --runMode genomeGenerate --genomeDir dr10_noalt_juncRefGene_RG_myc_61 --genomeFastaFiles danRer10_UCSC_RG/danRer10_RG_cmyc.fa --sjdbGTFfile danRer10_UCSC_RG/RefGene_danRer10-2017-08-28_RG_cmyc.gtf --sjdbOverhang 61
 ```
+
+### 4. Obtain files for specific features
+Get the interval files for the following features:
+-- genes
+-- exons
+-- introns
+-- non-genic
+-- ribosomal
+
+
+#### hg38
+
+
+
+
+just use bedtools coverage for this
+NO: use CollectRnaSeqMetrics
+
+
+for riboomal list: Represents a list of intervals against a reference sequence that can be written to and read from a file. The file format is relatively simple and reflects the SAM alignment format to a degree. A SAM style header must be present in the file which lists the sequence records against which the intervals are described. After the header the file then contains records one per line in text format with the following values tab-separated: Sequence name, Start position (1-based), End position (1-based, end inclusive), Strand (either + or -), Interval name (an, ideally unique, name for the interval),
+
+
+```bash
+#prepare a flat ref file
+ gtfToGenePred -genePredEx gencode.v27.annotation.gtf gencode.v27.annotation.refFlat
+ less gencode.v27.annotation.refFlat |awk '{print($12"\t"$0)}' | cut -f1-11 >gencode.v27.annotation.NameCol.refFlat
+
+ less gencode.v27.annotation.gtf |grep  "gene_type \"rRNA\"" |head
+
+
+
+samtools faidx hg38_ucsc.fa
+samtools view -ht hg38_ucsc.fa.fai hg38_rRNA.txt > header #this fails to make a proper file, but yields the header
+cat header hg38_rRNA.txt > hg38_ribosome.interval_list
+
+
+
+
+
+Gene_regions.bed			gencode.v27.annotation.gtf		header					hg38_ribosome.interval_list		hg38_ucsc.fa.fai
+
+java -jar picard.jar CollectRnaSeqMetrics \
+      I=input.bam \
+      O=output.RNA_Metrics \
+      REF_FLAT=ref_flat.txt \
+      STRAND=SECOND_READ_TRANSCRIPTION_STRAND \
+      RIBOSOMAL_INTERVALS=ribosomal.interval_list
+
+
+      java -jar picard CollectRnaSeqMetrics \
+            I=/Volumes/Data2/Drop_seq_pipeline/assigned_sorted.bam \
+            O=output.RNA_Metrics \
+            REF_FLAT=STAR_indeces/hg38_UCSC/gencode.v27.annotation.NameCol.refFlat \
+            STRAND=SECOND_READ_TRANSCRIPTION_STRAND \
+            RIBOSOMAL_INTERVALS=STAR_indeces/hg38_UCSC/hg38_ribosome.interval_list
+
+```
+
+notes:  "Picard version 1.97 uses a wrapper script symlinked to bin/: picard.  The wrapper script takes as arguments the particular jar file you want to run followed by any arguments for that jar.  For example, 'picard ViewSam.jar --help'."
+
+java -Xmx12G picard CollectRnaSeqMetrics \
+      I=/Volumes/Data2/Drop_seq_pipeline/assigned_sorted.bam \
+      O=output.RNA_Metrics \
+      REF_FLAT=STAR_indeces/hg38_UCSC/gencode.v27.annotation.NameCol.refFlat \
+      STRAND=SECOND_READ_TRANSCRIPTION_STRAND \
+      RIBOSOMAL_INTERVALS=STAR_indeces/hg38_UCSC/hg38_ribosome.interval_list
+
+
+
+ --help

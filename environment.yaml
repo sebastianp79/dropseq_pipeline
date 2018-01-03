@@ -32,9 +32,9 @@ dependencies:
     - python
     - fastqc
     - snakemake
-    - umi_tools
+    - umi_tools >= 0.5.1
     - STAR
-    - subread
+    - subread >= 1.6.0
     - samtools
     - r-base
     - multiqc
@@ -43,3 +43,5 @@ dependencies:
     - r-ggplot2
     - r-tidyr
     - r-optparse
+    - picard >= 2.9.2
+    - ucsc-gtftogenepred
